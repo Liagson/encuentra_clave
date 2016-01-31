@@ -1,7 +1,5 @@
 #Python 2.7#
 
-import enchant
-
 #fichero = nombre del fichero a descifrar
 
 def lectura_fichero(nombre_fichero):
@@ -62,10 +60,11 @@ def merge_resultado(array_resultado):
 
 	return resultado_en_palabras
 
-def comprobar_palabra(palabra, diccionario):
-	return diccionario.check(palabra)
-
-
+def contar_letra_e(texto_resultado):
+	contador_e = 0
+	for letra in texto_resultado:
+		if ((letra == 'e') or (letra == 'E')): contador_e += 1
+	return (contador_e > len(texto_resultado) * 0.10)
 
 """
 -Programa Principal-
@@ -74,13 +73,15 @@ Recomiendo ejecutarlo como: $> python main.py > fichero
 
 lista_caracteres_fichero = lectura_fichero(fichero)
 clave = ["a", "a", "a"]
-diccionario = enchant.Dict("en_US")
 
 while (clave != "X"):
 		clave_extendida = extensor_clave(clave, len(lista_caracteres_fichero))
 		resultado = operacion_xor(clave_extendida, lista_caracteres_fichero)
 		resultado_merged = merge_resultado(resultado)
-		if (resultado_merged.find("and") != -1) and (resultado_merged.find("the") != -1):
+		
+		concentracion_e = contar_letra_e(resultado_merged)
+		if (concentracion_e):
 			print "Clave:", clave
 			print resultado_merged		
+
 		clave = generador_clave(clave)
