@@ -1,10 +1,10 @@
 """
 -Python 2.7-
-Recomiendo ejecutarlo como: $> python main.py > fichero
+Recomiendo ejecutarlo como: $> python main.py > fichero_salida
 """
 import funciones as f
 
-fichero = "p059_cipher.txt"
+fichero = "nombre del fichero de lectura"
 lista_caracteres_fichero = f.lectura_fichero(fichero)
 clave = ["a", "a", "a"]
 
