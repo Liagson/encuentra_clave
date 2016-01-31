@@ -10,11 +10,12 @@ clave = ["a", "a", "a"]
 
 while (clave != "X"):
 		clave_extendida = f.extensor_clave(clave, len(lista_caracteres_fichero))
-		resultado = f.operacion_xor(clave_extendida, lista_caracteres_fichero)
-		resultado_merged = f.merge_resultado(resultado)
+		resultado = f.operacion_xor(clave_extendida, lista_caracteres_fichero)				
+		concentracion_e = f.contar_letra_e(resultado)
 		
-		concentracion_e = f.contar_letra_e(resultado_merged)
 		if (concentracion_e):
+			resultado_merged = f.merge_resultado(resultado)
+			
 			print "Clave:", clave
 			print resultado_merged		
 
